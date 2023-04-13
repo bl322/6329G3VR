@@ -279,7 +279,7 @@
 					let _select = document.getElementsByClassName(className+'_select')[0]
 					let _check = document.getElementsByClassName(className+'_check')[0]
 					let u_answer = className
-					//_select.setAttribute("visible", true);
+					_select.setAttribute("visible", true);
 				
 					if (answer_timer) {
 						clearTimeout(answer_timer);
@@ -322,7 +322,6 @@
 									let word = words[index]
 									console.log('错误',word,u_answer)
 									flag = 0;
-									// sound.currentTime = 2
 									falsesound.play();
 									_check.children[0].setAttribute('src', "#wrong")
 									_check.setAttribute("visible", true)
@@ -350,7 +349,7 @@
 				el.addEventListener('mouseleave', function(event){
 					
 					let _this = this;
-					//_this.setAttribute("visible", false);
+					_this.setAttribute("visible", false);
 					let obj_name = _this.className
 						document.getElementsByClassName(obj_name+'_select')[0].setAttribute('visible', "false")
 					// 有镜头追踪时候才隐藏
@@ -382,7 +381,7 @@
 		})
 		
 		$(document).ready(function() {
-			document.getElementById('res-count').setAttribute("value", "Result(0/5)")
+			document.getElementById('res-count').setAttribute("value", "Result(0/4)")
 		});
 		function clearScene() {
 			i = 0
@@ -401,7 +400,7 @@
 				if (!el.hasClass('link')) {
 					el.addClass('link')
 				}
-				// $('.' + words[i] + '_select')[0].setAttribute('visible', "false")
+				$('.' + words[i] + '_select')[0].setAttribute('visible', "false")
 				$('.' + words[i] + '_check')[0].setAttribute('visible', "false")
 				i++;
 			}
