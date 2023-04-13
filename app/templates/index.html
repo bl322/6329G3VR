@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh">
-<blue>
+<head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,7 +73,7 @@
 				color: #333;
 			}
 	</style>
-</blue>
+</head>
 <body>
 	<a-scene id="mainscene" visible="false">
 		<a-assets>
@@ -276,7 +276,7 @@
 				el.addEventListener('mouseenter',function(e){
 					let _this = this
 					let className = _this.className
-					let _select = document.getElementsByClassName(className+'_select')[0]
+					// let _select = document.getElementsByClassName(className+'_select')[0]
 					let _check = document.getElementsByClassName(className+'_check')[0]
 					let u_answer = className
 					// _select.setAttribute("visible", true);
@@ -296,12 +296,12 @@
 									text_el.children[0].setAttribute('src', "#correct")
 									_check.children[0].setAttribute('src', "#correct")
 									_check.setAttribute("visible", true)
-									// sound.currentTime = 0
+									// correctsound.currentTime = 0
 									// correctsound.play();
 									setTimeout(function() {
 										// sound.pause()
 										// todo 改成特效？
-										if (index+1 == words.length) {
+										if (index+1 == 5) {
 											alert('You have completed this course！');
 											document.getElementsByClassName('btn')[0].innerHTML="Learn again!",
 											document.getElementById('mainscene').setAttribute('visible', 'false')
@@ -350,9 +350,9 @@
 				el.addEventListener('mouseleave', function(event){
 					
 					let _this = this;
-					_this.setAttribute("visible", false);
+					// _this.setAttribute("visible", false);
 					let obj_name = _this.className
-						document.getElementsByClassName(obj_name+'_select')[0].setAttribute('visible', "false")
+						// document.getElementsByClassName(obj_name+'_select')[0].setAttribute('visible', "false")
 					// // 有镜头追踪时候才隐藏
 					if (_this.children[0].classList.contains('link')) {
 						document.getElementsByClassName(obj_name+'_check')[0].setAttribute('visible', "false")
@@ -382,15 +382,16 @@
 		})
 		
 		$(document).ready(function() {
-			document.getElementById('res-count').setAttribute("value", "Result(0/" + words.length + ")")
+			document.getElementById('res-count').setAttribute("value", "Result(0/5)")
 		});
 		function clearScene() {
-			for (i in words) {
+			i = 0
+			while(i < 5) {
 				let el = $('.' + words[i]).children(':first')
 				index = 0
 				answer = ''
 				flag = 0
-				document.getElementById('res-count').setAttribute("value", "Result(0/" + words.length + ")")
+				document.getElementById('res-count').setAttribute("value", "Result(0/5)")
 				// // hide tips
 				$('.tips').hide();
 				// //hide answer
@@ -400,8 +401,9 @@
 				if (!el.hasClass('link')) {
 					el.addClass('link')
 				}
-				$('.' + words[i] + '_select')[0].setAttribute('visible', "false")
+				// $('.' + words[i] + '_select')[0].setAttribute('visible', "false")
 				$('.' + words[i] + '_check')[0].setAttribute('visible', "false")
+				i++;
 			}
 		}
 	</script>
