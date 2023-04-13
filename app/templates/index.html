@@ -381,16 +381,15 @@
 		})
 		
 		$(document).ready(function() {
-			document.getElementById('res-count').setAttribute("value", "Result(0/4)")
+			document.getElementById('res-count').setAttribute("value", "Result(0/" + words.length + ")")
 		});
 		function clearScene() {
-			i = 0
-			while(i < 4) {
+			for (i in words) {
 				let el = $('.' + words[i]).children(':first')
 				index = 0
 				answer = ''
 				flag = 0
-				document.getElementById('res-count').setAttribute("value", "Result(0/4)")
+				document.getElementById('res-count').setAttribute("value", "Result(0/" + words.length + ")")
 				// // hide tips
 				$('.tips').hide();
 				// //hide answer
@@ -402,7 +401,6 @@
 				}
 				$('.' + words[i] + '_select')[0].setAttribute('visible', "false")
 				$('.' + words[i] + '_check')[0].setAttribute('visible', "false")
-				i++;
 			}
 		}
 	</script>
