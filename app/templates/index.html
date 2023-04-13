@@ -86,55 +86,56 @@
 		</a-assets>
 		<!-- bg -->
 		<a-sky src="#bg" radius="15" rotation="2 0 -1"></a-sky>
+		
 		<!-- objs -->
-		<a-entity class="elbow" position="-2 -5 13" rotation="180 0 0" visible="false"
+		<a-entity class="caec" position="-2 -5 13" rotation="180 0 0" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image class="link" src="#star" width="1" height="0.6"></a-image>
 		</a-entity>
-		<a-entity class="elbow_select" position="-2 -5 13" rotation="180 0 0" visible="false"
+		<a-entity class="caec_select" position="-2 -5 13" rotation="180 0 0" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image src="#arrow" width="3" height="3"></a-image>
 		</a-entity>
-		<a-entity class="elbow_check" position="-2 -5 13" rotation="180 0 0" visible="false"
+		<a-entity class="caec_check" position="-2 -5 13" rotation="180 0 0" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image src="#correct" width=".3" height=".3"></a-image>
 		</a-entity>
 		
-		<a-entity class="hand" position="1.31 -2 -3.3" rotation="0 40 90" visible="false"
+		<a-entity class="ow" position="1.31 -2 -3.3" rotation="0 40 90" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image class="link" src="#star" width="1" height="0.6"></a-image>
 		</a-entity>
-		<a-entity class="hand_select" position="1.31 -2 -3.3" rotation="0 -20 180" visible="false"
+		<a-entity class="ow_select" position="1.31 -2 -3.3" rotation="0 -20 180" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image src="#arrow" width="1" height="1"></a-image>
 		</a-entity>
-		<a-entity class="hand_check" position="1.31 -2 -3.3" rotation="0 40 90" visible="false"
+		<a-entity class="ow_check" position="1.31 -2 -3.3" rotation="0 40 90" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image src="#correct" width=".3" height=".3"></a-image>
 		</a-entity>
 		
-		<a-entity class="head" position="-3 3 -5" rotation="0 15 0" visible="false"
+		<a-entity class="boct" position="-3 3 -5" rotation="0 15 0" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image class="link" src="#star" width="1.5" height="0.9"></a-image>
 		</a-entity>
-		<a-entity class="head_select" position="-3 3 -5" rotation="180 15 0" visible="false"
+		<a-entity class="boct_select" position="-3 3 -5" rotation="180 15 0" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image src="#arrow" width="1.5" height="1.5"></a-image>
 		</a-entity>
-		<a-entity class="head_check" position="-3 3 -5" rotation="0 15 0" visible="false"
+		<a-entity class="boct_check" position="-3 3 -5" rotation="0 15 0" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image src="#correct" width=".5" height=".5"></a-image>
 		</a-entity>
 		
-		<a-entity class="leg" position="3.2 -4 -3.3" rotation="0 120 180" visible="false"
+		<a-entity class="sfp" position="3.2 -4 -3.3" rotation="0 120 180" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image class="link" src="#star" width="1.3" height="1"></a-image>
 		</a-entity>
-		<a-entity class="leg_select" position="3.2 -4 -3.3" rotation="0 120 180" visible="false"
+		<a-entity class="sfp_select" position="3.2 -4 -3.3" rotation="0 120 180" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image src="#arrow" width="1.5" height="1.5"></a-image>
 		</a-entity>
-		<a-entity class="leg_check" position="3.2 -4 -3.3" rotation="0 120 180" visible="false"
+		<a-entity class="sfp_check" position="3.2 -4 -3.3" rotation="0 120 180" visible="false"
 			event-set__mouseenter="scale: 1.2 1.2 1" event-set__mouseleave="scale: 1 1 1" canvas-updater>
 			<a-image src="#correct" width=".5" height=".5"></a-image>
 		</a-entity>
@@ -148,31 +149,33 @@
 				<a-image class="link" src="#start" width=".8" height=".8"></a-image>
 			</a-entity>
 		</a-entity>
+		
 		<!-- text -->
-		<a-box color="grey" width="2.2" height="2.6" position="2.4 0.8 -5" rotation="0 0 0" opacity="0.3"
+		<a-box color="#2468E2" width="2.2" height="2.6" position="2.4 0.8 -5" rotation="0 0 0" opacity="0.3"
 			depth="0.001">
 			<a-text id="res-count" value="Result(0/4)" width="6" position="-0.75 1 0" rotation="0 0 0" color="#fff">
 			</a-text>
-			<a-entity class="elbow-text" position="-1 0.6 0" visible='false'>
+			<a-entity class="caec-text" position="-1 0.6 0" visible='false'>
 				<a-image class="checkImg" src="#wrong" width="0.3" height="0.3" position="1.7 0 0"></a-image>
-				<a-text color="#fff" align="left" baseline="center" wrap-count="30" value="elbow">
+				<a-text color="#fff" align="left" baseline="center" wrap-count="30" value="caec">
 				</a-text>
 			</a-entity>
-			<a-entity class="hand-text" position="-1 -0.2 0" visible='false'>
+			<a-entity class="ow-text" position="-1 -0.2 0" visible='false'>
 				<a-image class="checkImg" src="#wrong" width="0.3" height="0.3" position="1.7 0 0"></a-image>
-				<a-text color="#fff" align="left" baseline="center" wrap-count="30" value="hand"></a-text>
+				<a-text color="#fff" align="left" baseline="center" wrap-count="30" value="ow"></a-text>
 			</a-entity>
-			<a-entity class="head-text" position="-1 -0.6 0" visible='false'>
+			<a-entity class="boct-text" position="-1 -0.6 0" visible='false'>
 				<a-image class="checkImg" src="#wrong" width="0.3" height="0.3" position="1.7 0 0"></a-image>
-				<a-text color="#fff" align="left" baseline="center" wrap-count="30" value="head">
+				<a-text color="#fff" align="left" baseline="center" wrap-count="30" value="boct">
 				</a-text>
 			</a-entity>
-			<a-entity class="leg-text" position="-1 -1 0" visible='false'>
+			<a-entity class="sfp-text" position="-1 -1 0" visible='false'>
 				<a-image class="checkImg" src="#wrong" width="0.3" height="0.3" position="1.7 0 0"></a-image>
-				<a-text color="#fff" align="left" baseline="center" wrap-count="30" value="leg">
+				<a-text color="#fff" align="left" baseline="center" wrap-count="30" value="sfp">
 				</a-text>
 			</a-entity>
 		</a-box>
+		
 		
 		<!-- Camera + cursor. -->
 		<a-entity>
@@ -182,11 +185,11 @@
 					animation__fusing="property: scale; startEvents: fusing; easing: easeInCubic; dur: 5500; from: 1 1 1; to: 10 10 10"
 					animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
 					geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
-					material="color: black; shader: flat" cursor="maxDistance: 30; fuse: 180 0 0; fuseTimeout:5500"
+					material="color: black; shader: flat" cursor="maxDistance: 30; fuse: true; fuseTimeout:5500"
 					raycaster="objects: .link">
 				</a-entity>
 			</a-entity>
-		</a-entity>
+		</a-entity> 
 		<!-- end scene -->
 	</a-scene>
 	
@@ -214,10 +217,10 @@
 		var words =["Bank of China Tower","Hong Kong Observation Wheel","Star Ferry Pier","Hong Kong Convention and Exhibition Centre"]
 		var end = 12
 		var aobj ={
-			'Bank of China Tower':[0,1.9],
-			'Hong Kong Observation Wheel':[2.0,4.6],
-			'Star Ferry Pier':[5.0,6.9],
-			'Hong Kong Convention and Exhibition Centre':[7.2,11]
+			'boct':[0,1.9],
+			'owl':[2.0,4.6],
+			'sfp':[5.0,6.9],
+			'caec':[7.2,11]
 		}
 		let index = 0
 		let answer = ''
