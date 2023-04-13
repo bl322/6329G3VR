@@ -268,105 +268,97 @@
 				});
 			}
 		});
-function sceneInit() {
-  var answer_timer;
-  var index = 0; // 增加变量 index 来记录当前测试单词的索引
-  var words_length = words.length;
-
-  function testNextWord() {
-    index++;
-    if (index >= words_length) {
-      alert('You have completed this course！');
-      document.getElementsByClassName('btn')[0].innerHTML = "Learn again!";
-      document.getElementById('mainscene').setAttribute('visible', 'false');
-      document.getElementById('sound').style.display = "none";
-      clearScene();
-      $('.container').show();
-    } else {
-      testWord(words[index]);
-    }
-  }
-
-  function testWord(word) {
-    var el = document.getElementsByClassName(word)[0];
-    el.addEventListener('mouseenter', function(e) {
-      let _this = this
-      let className = _this.className
-      let _select = document.getElementsByClassName(className + '_select')[0]
-      let _check = document.getElementsByClassName(className + '_check')[0]
-      let u_answer = className
-      _select.setAttribute("visible", true);
-
-      if (answer_timer) {
-        clearTimeout(answer_timer);
-      }
-      answer_timer = setTimeout(function() {
-        if (answer != '') {
-          var text_el = document.getElementsByClassName(answer + '-text')[0]
-          // 显示答案
-          if (!document.getElementsByClassName(answer + '-text')[0].getAttribute('visible')) {
-            document.getElementsByClassName(answer + '-text')[0].setAttribute('visible', "true")
-          }
-          if (u_answer === answer) {
-            //更改符号
-            text_el.children[0].setAttribute('src', "#correct")
-            _check.children[0].setAttribute('src', "#correct")
-            _check.setAttribute("visible", true)
-            // correctsound.currentTime = 0
-            correctsound.play();
-            setTimeout(function() {
-              // sound.pause()
-              // todo 改成特效？
-              testNextWord(); // 执行下一个测试
-            }, 1500)
-            console.log('正确')
-            // 取消跟踪
-            _this.children[0].classList.remove("link")
-            flag = 1;
-            let count = parseInt(index + 1)
-            document.getElementById('res-count').setAttribute("value", "Result(" + count + "/4)")
-            // 标记：答对之后，开始下一题之前，不要再播放错误音频
-            answer = ''
-          } else {
-            let word = words[index]
-            console.log('错误', word, u_answer)
-            flag = 0;
-            falsesound.play();
-            _check.children[0].setAttribute('src', "#wrong")
-            _check.setAttribute("visible", true)
-
-            let dur = Math.ceil((aobj[word][1] - aobj[word][0]) * 1000)
-            setTimeout(function() {
-              sound.pause()
-              sound.currentTime = aobj[word][0]
-              sound.play();
-              setTimeout(function() {
-                sound.pause()
-              }, dur)
-            }, 1500)
-          }
-        } else {
-          if (answer == '') {
-            $('.tips').show(300)
-          }
-        }
-      }, 5500);
-    })
-
-    el.addEventListener('mouseleave', function(event) {
-
-      let _this = this;
-      _this.setAttribute("visible", false);
-      let obj_name = _this.className
-      document.getElementsByClassName(obj_name + '_select')[0].setAttribute('visible', "false")
-      // 有镜头追踪时候才隐藏
-      if (_this.children[0].classList.contains('link')) {
-        document.getElementsByClassName(obj_name + '_check')[0].setAttribute('visible', "false")
-      }
-      $('.tips').hide(300)
-      if (answer_timer) {
-        clearTimeout(answer_timer);
-        answer_timer = null;
+		function sceneInit(){
+			var answer_timer;
+			for (i in words) {
+				var el =document.getElementsByClassName(words[i])[0]
+				el.addEventListener('mouseenter',function(e){
+					let _this = this
+					let className = _this.className
+					let _select = document.getElementsByClassName(className+'_select')[0]
+					let _check = document.getElementsByClassName(className+'_check')[0]
+					let u_answer = className
+					_select.setAttribute("visible", true);
+				
+					if (answer_timer) {
+						clearTimeout(answer_timer);
+					}
+					answer_timer = setTimeout(function() {
+							if (answer != '') {
+								var text_el = document.getElementsByClassName(answer+'-text')[0]
+								// 显示答案
+								if (!document.getElementsByClassName(answer+'-text')[0].getAttribute('visible')) {
+									document.getElementsByClassName(answer+'-text')[0].setAttribute('visible', "true")
+								}
+								if (u_answer === answer) {
+									//更改符号
+									text_el.children[0].setAttribute('src', "#correct")
+									_check.children[0].setAttribute('src', "#correct")
+									_check.setAttribute("visible", true)
+									// correctsound.currentTime = 0
+									correctsound.play();
+									setTimeout(function() {
+										// sound.pause()
+										// todo 改成特效？
+										if (index+1 == 4) {
+											alert('You have completed this course！');
+											document.getElementsByClassName('btn')[0].innerHTML="Learn again!",
+											document.getElementById('mainscene').setAttribute('visible', 'false')
+											document.getElementById('sound').style.display="none"
+											clearScene()
+											$('.container').show()
+										}
+									}, 1500)
+									console.log('正确')
+									// 取消跟踪
+									_this.children[0].classList.remove("link")
+									flag = 1;
+									let count = parseInt(index+1)
+									document.getElementById('res-count').setAttribute("value", "Result(" + count + "/4)")
+									// 标记：答对之后，开始下一题之前，不要再播放错误音频
+									answer = ''
+								} else {
+									let word = words[index]
+									console.log('错误',word,u_answer)
+									flag = 0;
+									falsesound.play();
+									_check.children[0].setAttribute('src', "#wrong")
+									_check.setAttribute("visible", true)
+									
+									let dur =Math.ceil((aobj[word][1] - aobj[word][0]) *1000) 
+									setTimeout(function() {
+										sound.pause()
+										sound.currentTime = aobj[word][0]
+										sound.play();
+										setTimeout(function() {
+											sound.pause()
+										}, dur)
+									}, 1500)
+								}
+							} else {
+								if (answer == '') {
+									$('.tips').show(300)
+								}
+							}
+						}, 5500);
+					
+					
+				})
+				
+				el.addEventListener('mouseleave', function(event){
+					
+					let _this = this;
+					_this.setAttribute("visible", false);
+					let obj_name = _this.className
+						document.getElementsByClassName(obj_name+'_select')[0].setAttribute('visible', "false")
+					// 有镜头追踪时候才隐藏
+					if (_this.children[0].classList.contains('link')) {
+						document.getElementsByClassName(obj_name+'_check')[0].setAttribute('visible', "false")
+					}
+					$('.tips').hide(300)
+					if (answer_timer) {
+						clearTimeout(answer_timer);
+						answer_timer = null;
 					}
 				
 				});
