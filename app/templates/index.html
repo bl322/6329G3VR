@@ -218,9 +218,9 @@
 		var end = 12
 		var aobj ={
 			'boct':[0,2.1],
-			'ow':[2.2,4.9],
-			'sfp':[5.0,6.9],
-			'caec':[7.2,11]
+			'ow':[2.2,4.8],
+			'sfp':[4.9,6.7],
+			'caec':[6.8,11]
 		}
 		let index = 0
 		let answer = ''
@@ -276,10 +276,10 @@
 				el.addEventListener('mouseenter',function(e){
 					let _this = this
 					let className = _this.className
-					// let _select = document.getElementsByClassName(className+'_select')[0]
+					let _select = document.getElementsByClassName(className+'_select')[0]
 					let _check = document.getElementsByClassName(className+'_check')[0]
 					let u_answer = className
-					// _select.setAttribute("visible", true);
+					_select.setAttribute("visible", true);
 				
 					if (answer_timer) {
 						clearTimeout(answer_timer);
@@ -297,7 +297,7 @@
 									_check.children[0].setAttribute('src', "#correct")
 									_check.setAttribute("visible", true)
 									// correctsound.currentTime = 0
-									// correctsound.play();
+									correctsound.play();
 									setTimeout(function() {
 										// sound.pause()
 										// todo 改成特效？
@@ -386,12 +386,12 @@
 		});
 		function clearScene() {
 			i = 0
-			while(i < 5) {
+			while(i < 4) {
 				let el = $('.' + words[i]).children(':first')
 				index = 0
 				answer = ''
 				flag = 0
-				document.getElementById('res-count').setAttribute("value", "Result(0/5)")
+				document.getElementById('res-count').setAttribute("value", "Result(0/4)")
 				// // hide tips
 				$('.tips').hide();
 				// //hide answer
@@ -401,7 +401,7 @@
 				if (!el.hasClass('link')) {
 					el.addClass('link')
 				}
-				// $('.' + words[i] + '_select')[0].setAttribute('visible', "false")
+				$('.' + words[i] + '_select')[0].setAttribute('visible', "false")
 				$('.' + words[i] + '_check')[0].setAttribute('visible', "false")
 				i++;
 			}
