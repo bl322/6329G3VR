@@ -225,7 +225,7 @@
 		let index = 0
 		let answer = ''
 		var flag = 0
-		var a =document.getElementById('sound');
+		var a = document.getElementById('sound');
 		var correctsound = document.getElementById('correct');
 		var falsesound = document.getElementById('false');
 
@@ -301,7 +301,7 @@
 									setTimeout(function() {
 										// sound.pause()
 										// todo 改成特效？
-										if (index+1 == 5) {
+										if (index+1 == 4) {
 											alert('You have completed this course！');
 											document.getElementsByClassName('btn')[0].innerHTML="Learn again!",
 											document.getElementById('mainscene').setAttribute('visible', 'false')
@@ -315,7 +315,7 @@
 									_this.children[0].classList.remove("link")
 									flag = 1;
 									let count = parseInt(index+1)
-									document.getElementById('res-count').setAttribute("value", "Result(" + count + "/5)")
+									document.getElementById('res-count').setAttribute("value", "Result(" + count + "/4)")
 									// 标记：答对之后，开始下一题之前，不要再播放错误音频
 									answer = ''
 								} else {
@@ -350,9 +350,9 @@
 				el.addEventListener('mouseleave', function(event){
 					
 					let _this = this;
-					// _this.setAttribute("visible", false);
+					_this.setAttribute("visible", false);
 					let obj_name = _this.className
-						// document.getElementsByClassName(obj_name+'_select')[0].setAttribute('visible', "false")
+						document.getElementsByClassName(obj_name+'_select')[0].setAttribute('visible', "false")
 					// // 有镜头追踪时候才隐藏
 					if (_this.children[0].classList.contains('link')) {
 						document.getElementsByClassName(obj_name+'_check')[0].setAttribute('visible', "false")
